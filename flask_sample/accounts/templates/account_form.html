@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}{{type}} Account{% endblock %}
+{% block content %}
+{% from "_formhelpers.html" import render_field %}
+<div class="container-fluid">
+    <div class="h4">{{type}} Account</div>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{render_field(form.acc_type)}}
+        {{render_field(form.funds)}}
+        <br>
+        {{form.submit(class="btn btn-primary")}}
+    </form>
+</div>
+{% endblock %}

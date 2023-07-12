@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %}Internal Transfer{% endblock %}
+{% block content %}
+{% from "_formhelpers.html" import render_field %}
+<div class="container-fluid">
+    <div class="h4">Internal Transfer</div>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{render_field(form.account_src)}}
+        {{render_field(form.account_dest)}}
+        {{render_field(form.funds)}}
+        {{render_field(form.memo)}}
+        {{form.submit(class="btn btn-primary")}}
+    </form>
+</div>
+{% endblock %}

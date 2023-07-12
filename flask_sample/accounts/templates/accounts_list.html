@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block title %}My Accounts{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="h4">My Accounts</div>
+    <table class="table">
+        {% if rows and rows|length > 0 %}
+        <thead>
+            <tr class="text-capitalize">
+                {% for r in rows[0] %}
+                <th>{{r}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        {% for r in rows %}
+        <tr>
+            {% for v in r.values() %}
+            <td>{{v}}</td>
+            {% endfor %}
+            <td>
+                <a href="{{url_for('accounts.transactions', acc_number=r.get('account_number'), **request.args)}}"
+                    class="btn btn-secondary btn-sm">Transactions</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <p>No results to show</p>
+        {% endif %}
+    </table>
+</div>
+</div>
+{% endblock %}

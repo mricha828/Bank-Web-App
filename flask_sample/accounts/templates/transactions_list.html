@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+{% block title %}My Accounts{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="h4">Account</div>
+    <p> <strong>Account Number</strong> - {{account.account_number}}</p>
+    <p><strong>Account Type</strong> - {{account.account_type}} account</p>
+    <p><strong>Balance</strong> - ${{account.balance}}</p>
+    <p><strong>Created on</strong> - {{account.created}}</p>
+    <hr>
+    <div class="h4">Transactions History</div>
+    <p><b>Filter</b></p>
+    <form>
+        <div class="col hidden">
+            <label for="acc_number">Account Number</label>
+            <input name="acc_number" type="text" value="{{account.account_number}}">
+            <br><br>
+        </div>
+        <div class="row">            
+            <div class="col">
+            <label for="start_date">Start Date</label>
+            <input name="start_date" type="date" class="form-control" placeholder="Start" aria-label="Date start">
+            </div>
+            <div class="col">
+            <label for="end_date">End Date</label>
+            <input name="end_date" type="date" class="form-control" placeholder="End" aria-label="Date end">
+            </div>
+            <div class="col">
+                <label for="transaction_type">Transaction Type</label>
+                <select name="transaction_type" class="form-select" aria-label="Default select example">
+                    <option disabled selected>Transaction Type</option>
+                    <option value="Deposit">Deposit</option>
+                    <option value="Withdraw">Withdraw</option>
+                    <option value="Transfer">Transfer</option>
+                </select>
+            </div>
+            <div class="col">
+                <br>
+                <input type="submit" class="btn btn-primary" value="Filter">
+            </div>
+        </div>
+    </form>
+    <br>
+    <table class="table">
+        {% if rows and rows|length > 0 %}
+        <thead>
+            <tr class="text-capitalize">
+                {% for r in rows[0] %}
+                <th>{{r}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        {% for r in rows %}
+        <tr>
+            {% for v in r.values() %}
+            <td>{{v}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        {% else %}
+        <p>No results to show</p>
+        {% endif %}
+    </table>
+    {% if pages > 1 %}
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {% if current_page > 1 %}
+            <li class="page-item"><a class="page-link" href="{{url_for('accounts.transactions', acc_number=account.account_number, page=current_page-1)}}">Previous</a></li>
+            {% endif %}
+            {% for r in range(pages) %}
+            <li class="page-item"><a class="page-link {% if current_page == r+1 %}active_link{% endif %}" href="{{url_for('accounts.transactions', acc_number=account.account_number, page=r+1)}}">{{r+1}}</a></li>
+            {% endfor %}
+            {% if current_page != pages %}
+            <li class="page-item"><a class="page-link" href="{{url_for('accounts.transactions', acc_number=account.account_number, page=current_page+1)}}">Next</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+</div>
+{% endblock %}
