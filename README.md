@@ -1,10 +1,6 @@
 # Bank-Web-App
 Web Application for Banking 
-<table><tr><td> <em>Assignment: </em> IS601 Milestone 3 Bank Project</td></tr>
-<tr><td> <em>Student: </em> Richa Mishra (rm957)</td></tr>
-<tr><td> <em>Generated: </em> 5/5/2023 5:32:33 PM</td></tr>
-<tr><td> <em>Grading Link: </em> <a rel="noreferrer noopener" href="https://learn.ethereallab.app/homework/IS601-006-S23/is601-milestone-3-bank-project/grade/rm957" target="_blank">Grading</a></td></tr></table>
-<table><tr><td> <em>Instructions: </em> <ol><li>Checkout Milestone3 branch</li><li>Create a new markdown file called milestone3.md</li><li>git add/commit/push immediate</li><li>Fill in the below deliverables</li><li>At the end copy the markdown and paste it into milestone3.md</li><li>Add/commit/push the changes to Milestone3</li><li>PR Milestone3 to dev and verify</li><li>PR dev to prod and verify</li><li>Checkout dev locally and pull changes to get ready for Milestone 4</li><li>Submit the direct link to this new milestone3.md file from your GitHub prod branch to Canvas</li></ol><p>Note: Ensure all images appear properly on GitHub and everywhere else. Images are only accepted from dev or prod, not localhost. All website links must be from prod (you can assume/infer this by getting your dev URL and changing dev to prod).</p></td></tr></table>
+
 <table><tr><td> <em>Deliverable 1: </em> User will be able to transfer between their accounts </td></tr><tr><td><em>Status: </em> <img width="100" height="20" src="https://user-images.githubusercontent.com/54863474/211707773-e6aef7cb-d5b2-4053-bbb1-b09fc609041e.png"></td></tr>
 <tr><td><table><tr><td> <em>Sub-Task 1: </em> Add screenshot of transfer page</td></tr>
 <tr><td><table><tr><td><img width="768px" src="https://user-images.githubusercontent.com/123108423/236558342-51ffdb6e-2910-444d-955e-711f1d8786d2.png"/></td></tr>
